@@ -85,5 +85,15 @@ shorthand;
 kibo-headless-logs gbl --o buildlogs --t 1234 --s 1234 --a AppKey --k Secret --b kibo-sb-main --n 3 --h t1234-s1234.sandbox.mozu.com
 ```
 
+## EU Environment Example
+
+If your tenant is in the EU region, use the `--home-host` option with the correct EU host:
+
+```powershell
+node ./bin/index.js runtime-logs --prefix 2025-05-17 -o /var/log/kibo --home-host home.euw1.kibocommerce.com
+```
+
+Replace the prefix date as needed for your log range.
+
 ## Viewer
 View exported logs in tool such as https://github.com/allproxy/json-log-viewer
