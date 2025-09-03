@@ -125,19 +125,19 @@ export default async function exportRuntimeLogs(options) {
         const logService = new LogService(options)
         // Log the request details
         const paramStr = `prefix=${prefix ?? ''}&maxResults=500&nextToken=`;
-        const requestHeaders = {
-            'Authorization': 'Bearer <access_token>', // The real token is set in LogService
-            'x-vol-tenant': options.tenant || process.env.KIBO_TENANT,
-            'x-vol-site': options.site || process.env.KIBO_SITE
-        };
+        // const requestHeaders = {
+        //     'Authorization': 'Bearer <access_token>', // The real token is set in LogService
+        //     'x-vol-tenant': options.tenant || process.env.KIBO_TENANT,
+        //     'x-vol-site': options.site || process.env.KIBO_SITE
+        // };
         const apiUrl = `https://${options.homeHost || process.env.HOME_HOST || 'home.mozu.com'}/api/platform/appdev/headless-app/logs/runtime?${paramStr}`;
-        console.log('API Request:');
-        console.log('  URL:', apiUrl);
-        console.log('  Method: GET');
-        console.log('  Headers:', requestHeaders);
+        //console.log('API Request:');
+        //console.log('  URL:', apiUrl);
+        //console.log('  Method: GET');
+        //console.log('  Headers:', requestHeaders);
         // No body for GET
         const logs = await logService.fetchRuntimeLogs(prefix, maxentries, cutoff)
-        console.log('Fetched logs object:', logs); // Print the logs array/object for debugging
+        //console.log('Fetched logs object:', logs); // Print the logs array/object for debugging
         if(!logs.length){
             console.log('no logs found')
             return
